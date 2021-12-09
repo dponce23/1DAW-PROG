@@ -77,7 +77,6 @@ public class Tablero {
 		
 		if (turno % 2 == 0) {
 			System.out.println("Turno " + turno);
-			
 			if (posY <= 25) {
 				System.out.println("Avanzas hasta la casilla " + posY);
 			}
