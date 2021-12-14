@@ -6,7 +6,7 @@ public class Tablero {
 
 	static int posX = 1;
 	static int posY = 1;
-	private static int i=0;
+	
 
 	public static void dibujarTablero() {
 		
@@ -17,7 +17,8 @@ public class Tablero {
 			if (i % 5 == 0) {
 				System.out.println("");
 			}
-
+			isEscalera();
+			isSerpiente();
 			if (casilla == posX && casilla == posY) {
 				System.out.print("XY  ");
 				casilla++;
@@ -35,8 +36,7 @@ public class Tablero {
 				casilla++;
 				continue;
 			}
-			isEscalera();
-			isSerpiente();
+			
 			tablero[i] = casilla;
 			System.out.printf("%02d  ", casilla);
 			casilla++;
@@ -82,47 +82,54 @@ public class Tablero {
 	
 public static void tirarAuto(int turno, int [] tiradas) {
 	System.out.println("Turno " + turno);
-	int tirada=0;
+	
+	for(int i=0;i<tiradas.length;i++) {
+		
 		if (turno % 2 == 0) {
 			System.out.println("Te toca jugador Y");
-			if(tiradas.length>i) {
-				tirada=tiradas[i];
-			}else {
-				dibujarTablero();
-			}
-			i++;
-			System.out.println("has Sacado un " + tirada);
+			System.out.println("has Sacado un " + tiradas[i]);
 			if (posY <= 25) {
+				posY += tiradas[i];
 				System.out.println("Avanzas hasta la casilla " + posY);
-				posY += tirada;
+				
 			}
+			if(posY>=25) {
+				System.out.println("has ganado");
+				break;
+			}
+			if(tiradas[i]==6) {
+				dibujarTablero();
+				continue;
+			}
+			
 			
 			
 		} else {
 			System.out.println("Te toca jugador X");
-			if(tiradas.length>i) {
-				tirada=tiradas[i];
-				
-			}else {
-				dibujarTablero();
-			}
-			i++;
-			System.out.println("has Sacado un " + tirada);
+			System.out.println("has Sacado un " + tiradas[i]);
 			if (posX <= 25) {
+				posX += tiradas[i];
 				System.out.println("Avanzas hasta la casilla " + posX);
-				posX += tirada;
+				
+			}
+			if(posX>=25) {
+				System.out.println("has ganado");
+				break;
+			}
+			if(tiradas[i]==6) {
+				dibujarTablero();
+				continue;
 			}
 			
 		}
-		
+		turno++;
+		dibujarTablero();
+	}
 	}
 
-	public static boolean ganar(int [] tiradas) {
+	public static boolean ganar() {
 		boolean ganar = false;
-		if (posX > 26 || posY > 26) {
-			ganar = true;
-		}
-		if (i==tiradas.length) {
+		if (posX >= 25 || posY >= 25) {
 			ganar = true;
 		}
 		return ganar;
