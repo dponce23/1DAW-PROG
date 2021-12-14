@@ -6,10 +6,9 @@ public class Tablero {
 
 	static int posX = 1;
 	static int posY = 1;
-	
 
 	public static void dibujarTablero() {
-		
+
 		int[] tablero = new int[25];
 		int casilla = 1;
 
@@ -19,6 +18,7 @@ public class Tablero {
 			}
 			isEscalera();
 			isSerpiente();
+
 			if (casilla == posX && casilla == posY) {
 				System.out.print("XY  ");
 				casilla++;
@@ -36,7 +36,7 @@ public class Tablero {
 				casilla++;
 				continue;
 			}
-			
+
 			tablero[i] = casilla;
 			System.out.printf("%02d  ", casilla);
 			casilla++;
@@ -58,73 +58,80 @@ public class Tablero {
 			int numero = (int) (Math.random() * 6 + 1);
 			System.out.println("has Sacado un " + numero);
 			posY += numero;
-			if (posY <= 25) {
+			if (posY <= 25 && posY != 2 && posY != 13 && posY != 15 && posY != 18 && posY != 20 && posY != 23) {
 				System.out.println("Avanzas hasta la casilla " + posY);
-				
+
 			}
-			
+			if (posY >= 25) {
+				ganador();
+			}
+
 		} else {
-			
+
 			System.out.println("Te toca jugador X presiona 'enter' para tirar");
 			teclado.nextLine();
 			int numero = (int) (Math.random() * 6 + 1);
 			System.out.println("has Sacado un " + numero);
 			posX += numero;
-			if (posX <= 25) {
+			if (posX <= 25 && posX != 2 && posX != 13 && posX != 15 && posX != 18 && posX != 20 && posX != 23) {
 				System.out.println("Avanzas hasta la casilla " + posX);
+
+			}
+			if (posY >= 25) {
+				ganador();
 				
 			}
 		}
-		
+
 	}
 
-	
-	
-public static void tirarAuto(int turno, int [] tiradas) {
-	System.out.println("Turno " + turno);
-	
-	for(int i=0;i<tiradas.length;i++) {
-		
-		if (turno % 2 == 0) {
-			System.out.println("Te toca jugador Y");
-			System.out.println("has Sacado un " + tiradas[i]);
-			if (posY <= 25) {
-				posY += tiradas[i];
-				System.out.println("Avanzas hasta la casilla " + posY);
-				
+	public static void tirarAuto(int turno, int[] tiradas) {
+		System.out.println("Turno " + turno);
+
+		for (int i = 0; i < tiradas.length; i++) {
+
+			if (turno % 2 == 0) {
+				System.out.println("Te toca jugador Y");
+				System.out.println("has Sacado un " + tiradas[i]);
+				if (posY <= 25) {
+					posY += tiradas[i];
+					if ( posY <= 25 && posY != 2 && posY != 13 && posY != 15 && posY != 18 && posY != 20 && posY != 23) {
+						System.out.println("Avanzas hasta la casilla " + posY);
+					}
+				}
+				if (posY >= 25) {
+					ganador();
+					break;
+				}
+				if (tiradas[i] == 6) {
+					dibujarTablero();
+					continue;
+				}
+
+			} else {
+				System.out.println("Te toca jugador X");
+				System.out.println("has Sacado un " + tiradas[i]);
+				if (posX <= 25) {
+					posX += tiradas[i];
+					if ( posX <= 25 && posX != 2 && posX != 13 && posX != 15 && posX != 18 && posX != 20 && posX != 23) {
+						System.out.println("Avanzas hasta la casilla " + posX);
+
+					}
+
+				}
+				if (posX >= 25) {
+					ganador();
+					break;
+				}
+				if (tiradas[i] == 6) {
+					dibujarTablero();
+					continue;
+				}
+
 			}
-			if(posY>=25) {
-				System.out.println("has ganado");
-				break;
-			}
-			if(tiradas[i]==6) {
-				dibujarTablero();
-				continue;
-			}
-			
-			
-			
-		} else {
-			System.out.println("Te toca jugador X");
-			System.out.println("has Sacado un " + tiradas[i]);
-			if (posX <= 25) {
-				posX += tiradas[i];
-				System.out.println("Avanzas hasta la casilla " + posX);
-				
-			}
-			if(posX>=25) {
-				System.out.println("has ganado");
-				break;
-			}
-			if(tiradas[i]==6) {
-				dibujarTablero();
-				continue;
-			}
-			
+			turno++;
+			dibujarTablero();
 		}
-		turno++;
-		dibujarTablero();
-	}
 	}
 
 	public static boolean ganar() {
