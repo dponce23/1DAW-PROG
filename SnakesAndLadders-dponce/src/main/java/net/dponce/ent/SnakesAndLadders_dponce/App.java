@@ -9,17 +9,24 @@ import java.util.Arrays;
 public class App {
 	public static void main(String[] args) {
 		int turno=1;
+		
+		
+		System.out.println("bienvenido al Juego de Escaleras y Serpientes");
+		System.out.println("Jugadores:X e Y");
 		String [] separados= args[0].split(",");
 		int [] tiradas=new int [separados.length];
 		for(int i=0;i<separados.length;i++) {
 			tiradas[i]=Integer.parseInt(separados[i]);
 		}
-		
-		System.out.println("bienvenido al Juego de Escaleras y Serpientes");
-		System.out.println("Jugadores:X e Y");
-		while(Tablero.ganar()==false) {
+		while(Tablero.ganar(tiradas)==false) {
 			Tablero.dibujarTablero();
-			Tablero.turno(turno);
+			if(args.length!=0) {
+				
+				Tablero.tirarAuto(turno, tiradas);
+			}else {
+				Tablero.tirarDado(turno);
+			}
+			
 			turno++;
 		}
 		Tablero.ganador();
