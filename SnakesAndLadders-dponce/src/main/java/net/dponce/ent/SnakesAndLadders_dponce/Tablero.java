@@ -77,7 +77,7 @@ public class Tablero {
 				System.out.println("Avanzas hasta la casilla " + posX);
 
 			}
-			if (posY >= 25) {
+			if (posX >= 25) {
 				ganador();
 				
 			}
