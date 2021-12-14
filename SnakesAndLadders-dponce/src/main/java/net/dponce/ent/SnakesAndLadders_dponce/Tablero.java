@@ -52,25 +52,25 @@ public class Tablero {
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Te toca jugador Y presiona 'enter' para tirar");
 		teclado.nextLine();
-		int numero = (int) (Math.random() * 6 + 1);
-		System.out.println("has Sacado un " + numero);
+		int numero1 = (int) (Math.random() * 6 + 1);
+		System.out.println("has Sacado un " + numero1);
 		if (turno % 2 == 0) {
-			if(posY+numero>26) {
+			if(posY+numero1>26) {
 				posY+=0;
 				System.out.println("Te has pasado la meta le toca a jugador X");
 			}else {
-				posY += numero;
+				posY += numero1;
 			}
 			
 		} else {
-			if(posX+numero>26) {
+			if(posX+numero1>26) {
 				posX+=0;
 				System.out.println("Te has pasado la meta le toca a jugador Y");
 			}else {
-				posX += numero;
+				posX += numero1;
 			}
 		}
-		return numero;
+		return numero1;
 	}
 
 	public static void turno(int turno) {
