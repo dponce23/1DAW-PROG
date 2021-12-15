@@ -144,10 +144,10 @@ public class Tablero {
 
 	public static void ganador() {
 		if (posX >= 25) {
-			System.out.println("Enhorabuena jugador X has ganado la partida");
+			System.out.println("Enhorabuena jugador X has ganado la partida ");
 		} else {
 			if (posY >= 25) {
-				System.out.println("Enhorabuena jugador Y has ganado la partida");
+				System.out.println("Enhorabuena jugador Y has ganado la partida ");
 			}
 		}
 	}
