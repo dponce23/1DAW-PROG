@@ -116,10 +116,10 @@ public class UtilidadesArrays {
 	 * @param a array de enteros
 	 * @param num numero que sumamos a cada entero del array
 	 */
-	public static void incrementarArray(int [] a, int num) {
+	public static void incrementarArray(int [] a, int numero) {
 		
 		for(int i=0; i<a.length;i++) {
-			a[i]+=num;
+			a[i]+=numero;
 		}
 	}
 	
