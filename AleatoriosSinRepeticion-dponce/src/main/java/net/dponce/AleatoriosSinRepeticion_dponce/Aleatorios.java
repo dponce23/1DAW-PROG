@@ -18,7 +18,7 @@ public class Aleatorios {
 		for (int i = 0; i < numeroDeNums; i++) {
 			int generado = generarNumero(maximo);
 			numerosGenerados[i] = generado;
-			System.out.print(numerosGenerados[i] + " ");
+			System.out.print(numerosGenerados[i]+ " ");
 		}
 		
 	}
