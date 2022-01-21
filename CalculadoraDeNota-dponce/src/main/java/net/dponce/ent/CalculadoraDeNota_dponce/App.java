@@ -21,6 +21,7 @@ public class App {
 	}
 
 	public static void main(String[] args) {
+		CalculadoraDeNota calcular=new CalculadoraDeNota();
 
 		if (Array.getLength(args) == 6) {
 			boolean okexamen1 = esNumero(args[0]);
@@ -61,22 +62,20 @@ public class App {
 			double practica2 = Double.parseDouble(args[3]);
 			double asistencia = Double.parseDouble(args[4]);
 			double actitud = Double.parseDouble(args[5]);
-			double media=CalculadoraDeNota.sacarMedia(examen1, examen2, practica1, practica2, asistencia, actitud);
+			double media=calcular.sacarMedia(examen1, examen2, practica1, practica2, asistencia, actitud);
 			
-			if(media==10) {
-				System.out.println("ENHORABUENA HAS OBTENIDO MENCIÓN DE HONOR");
-			}else {
-				if(media!=0) {
-					System.out.println("La nota Final es: \n" + Math.round(CalculadoraDeNota.sacarMedia(examen1, examen2, practica1, practica2, asistencia, actitud) * 100.0) / 100.0);
-				}
-			}
+			calcular.imprimeNota(examen1, examen2, practica1, practica2, asistencia, actitud);
+			
+			
+			
 		} else {
 			if (Array.getLength(args) < 6) {
-				System.out.println("Hay pocas notas");
+				System.out.println("No hay argumentos suficientes");
 			} else {
-				System.out.println("Hay demasiadas notas");
+				System.out.println("Hay demasiadas demasiados argumentos");
 			}
-
+		
 		}
+		
 	}
 }

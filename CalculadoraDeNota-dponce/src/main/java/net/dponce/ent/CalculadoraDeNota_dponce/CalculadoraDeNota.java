@@ -1,11 +1,8 @@
 package net.dponce.ent.CalculadoraDeNota_dponce;
 
 public class CalculadoraDeNota {
-
-
 	
-
-	public static double sacarMedia(double examen1, double examen2, double practica1, double practica2, double asistencia, double actitud) {
+	public double sacarMedia(double examen1, double examen2, double practica1, double practica2, double asistencia, double actitud) {
 		double notaFinal;
 		double teoria = (examen1 + examen2 + practica1 + practica2) / 4;
 
@@ -19,9 +16,6 @@ public class CalculadoraDeNota {
 					notaFinal = teoria;
 				} else {
 					notaFinal = (teoria * 0.8) + (actitud) + (asistencia);
-					System.out.println("Tus notas son: \nEn los examenes\n" + examen1 + "\n" + examen2
-							+ "\nEn las practicas\n" + practica1 + "\n" + practica2 + "\nAsistencia y actitud\n"
-							+ asistencia + "\n" + actitud);
 				}
 				if (examen1 < 3 || examen2 < 3) {
 					notaFinal = 0;
@@ -32,6 +26,20 @@ public class CalculadoraDeNota {
 			}
 		return notaFinal;
 
+	}
+	public String nota2String(double media) {
+		if(media==10) {
+			return "ENHORABUENA HAS OBTENIDO MENCIÓN DE HONOR";
+		}
+		if(media==0) {
+			return "";
+		}
+		return "La nota Final es: \n" + media;
+		
+	}
+	
+	public void imprimeNota(double examen1, double examen2, double practica1, double practica2, double asistencia, double actitud) {
+		System.out.println(nota2String(sacarMedia(examen1, examen2, practica1, practica2, asistencia, actitud ) ) );
 	}
 
 }
