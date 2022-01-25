@@ -4,12 +4,14 @@ import java.util.Arrays;
 
 public class UtilidadesArrays {
 	
+	
+	
 	/**
 	 * Recibe un array de enteros y devuelve un entero indicando la posicion del numero mas pequeño del array
 	 * @param a array de enteros
 	 * @return indice posicion del numero menor en el array
 	 */
-	public static int minimoIndice(int [] a) {
+	public int minimoIndice(int [] a) {
 		int menor=Integer.MAX_VALUE;
 		int indice=0;
 		for(int i=0; i<a.length;i++) {
@@ -26,7 +28,7 @@ public class UtilidadesArrays {
 	 * @param a array de enteros
 	 * @return menor el numero entero mas pequeño del array
 	 */
-	public static int minimo(int [] a) {
+	public int minimo(int [] a) {
 		int menor=a[0];
 		for(int i=1; i<a.length;i++) {
 			if(a[i]<menor) {
@@ -41,7 +43,7 @@ public class UtilidadesArrays {
 	 * @param a array de enteros
 	 * @return media la media de los numeros enteros del array
 	 */
-	public static double media(int [] a) {
+	public double media(int [] a) {
 		double suma=0;
 		double media=0;
 		for(int i=0; i<a.length;i++) {
@@ -56,7 +58,7 @@ public class UtilidadesArrays {
 	 * @param a array de enteros
 	 * @return indice la posicion del numero entero mas grande del array
 	 */
-	public static int maximoIndice(int [] a) {
+	public int maximoIndice(int [] a) {
 		int mayor=Integer.MIN_VALUE;
 		int indice=0;
 		for(int i=0; i<a.length;i++) {
@@ -73,7 +75,7 @@ public class UtilidadesArrays {
 	 * @param a array de enteros
 	 * @return mayor el numero entero mas grande del array
 	 */
-	public static int maximo(int [] a) {
+	public int maximo(int [] a) {
 		int mayor=a[0];
 		for(int i=1; i<a.length;i++) {
 			if(a[i]>mayor) {
@@ -87,7 +89,7 @@ public class UtilidadesArrays {
 	 * Recibe un array de enteros y modifica el array y lo devuelve al reves
 	 * @param a array de enteros
 	 */
-	public static void invertirArray(int [] a) {
+	public void invertirArray(int [] a) {
 		int aux=0;
 		for(int i=0; i<a.length/2; i++) {
 			aux=a[i];
@@ -100,7 +102,7 @@ public class UtilidadesArrays {
 	 * Recibe un array de enteros y devuelve un array nuevo con los numeros al reves
 	 * @param a array de enteros
 	 */
-	public static int [] invertir(int [] a) {
+	public int [] invertir(int [] a) {
 		int [] num;
 		num = new int [a.length];
 		int j=a.length-1;
@@ -116,7 +118,7 @@ public class UtilidadesArrays {
 	 * @param a array de enteros
 	 * @param num numero que sumamos a cada entero del array
 	 */
-	public static void incrementarArray(int [] a, int numero) {
+	public void incrementarArray(int [] a, int numero) {
 		
 		for(int i=0; i<a.length;i++) {
 			a[i]+=numero;
@@ -129,7 +131,7 @@ public class UtilidadesArrays {
 	 * @param num numero que sumamos a cada entero del array
 	 * @return incrementados el array de los numeros sumados
 	 */
-	public static int [] incrementar(int [] a, int num) {
+	public int [] incrementar(int [] a, int num) {
 		int [] incrementados;
 		incrementados=new int [a.length];
 		int j=0;
