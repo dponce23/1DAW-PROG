@@ -192,7 +192,7 @@ public class AppTest {
 	}
 
 	@Test
-	@DisplayName("Test que devuelve un nuevo array con los numeros negativos invertidos")
+	@DisplayName("Test que devuelve un nuevo array con los numeros negativos incrementados")
 	public void incrementar4() {
 		int[] correcto = { 0, -1, -2, -3, -4 };
 		int[] incrementado = utilidades.incrementar(arrayB, 1);
