@@ -7,18 +7,18 @@ public class App {
 		
 		
 		try {
-			Fecha fecha1 = new Fecha(31, 12, 1991);
+			Fecha fecha1 = new Fecha(1, 12, 0);
 			if (fecha1.fechaCorrecta()) {
 				System.out.println(fecha1.toString());
 
-				for (int i = 1; i < 150; i++) {
+				for (int i = 1; i < 2; i++) {
 					fecha1.diaSiguiente();
 					System.out.println(fecha1.toString());
 					System.out.println("-------------------------------------------------------------------------");
 				}
 			}
 		} catch (IllegalArgumentException execpcion) {
-			System.err.println("La Fecha introducida es incorrecta");
+			System.err.println(execpcion.getMessage());
 		}
 
 	}

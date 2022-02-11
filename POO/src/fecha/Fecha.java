@@ -10,7 +10,36 @@ public class Fecha {
 		this.dia = dia;
 		this.mes = mes;
 		this.anio = anio;
-		
+		if (anio < 0) {
+			throw new IllegalArgumentException("NO SE ACEPTAN AÑOS NEGATIVOS");
+
+		}
+		if (mes > 12 || mes < 1) {
+			throw new IllegalArgumentException("EL MES TIENE QUE ESTAR ENTRE 1 Y 12");
+
+		}
+		if (dia == 0) {
+			throw new IllegalArgumentException("EL DIA NO PUEDE SER 0");
+		}
+		if ((mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && dia > 31) {
+			throw new IllegalArgumentException("EL MES " + mes + " SOLO TIENE 31 dias");
+
+		}
+		if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) {
+			throw new IllegalArgumentException("EL MES " + mes + " SOLO TIENE 30 dias");
+
+		}
+		if (esBisiesto()) {
+			if (mes == 2 && dia > 29) {
+				throw new IllegalArgumentException("EL AÑO ES BISIESTO SOLO TIENES HASTA EL DIA 29");
+
+			}
+		} else {
+			if (mes == 2 && dia > 28) {
+				throw new IllegalArgumentException("EL AÑO NO ES BISIESTO: EL MES 2 TIENE 28 dias");
+
+			}
+		}
 	}
 
 	// METODOS
@@ -24,6 +53,9 @@ public class Fecha {
 		if (mes > 12 || mes < 1) {
 			correcta = false;
 
+		}
+		if (dia == 0 || mes == 0) {
+			correcta = false;
 		}
 		if ((mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && dia > 31) {
 			correcta = false;
