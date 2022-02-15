@@ -7,7 +7,7 @@ public class App {
 		
 		
 		try {
-			Fecha fecha1 = new Fecha(31, 12, 1991);
+			Fecha fecha1 = new Fecha(23, 3, 2002);
 			if (fecha1.fechaCorrecta()) {
 				System.out.println(fecha1.toString());
 

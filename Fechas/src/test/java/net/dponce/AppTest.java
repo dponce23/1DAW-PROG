@@ -1,5 +1,7 @@
 package net.dponce;
 
+import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
@@ -10,13 +12,13 @@ import org.junit.jupiter.api.Test;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+    
     @Test
-    @DisplayName("Test por defecto siempre funciona")
-    public void shouldAnswerWithTrue()
+    @DisplayName("Test que prueba que el programa devuelva una fecha correcta")
+    public void comprobarQueDevuelveUnaFechaCorrecta()
     {
-        assertTrue( true );
+        Fecha fecha1= new Fecha(23,3,2002);
+        String prueba=fecha1.toString();
+        assertEquals(prueba,23-03-2002);
     }
 }
