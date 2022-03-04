@@ -7,14 +7,13 @@ public class App
 {
     public static void main( String[] args )
     {
-    	int cont=0;
-    	char barra=(int) 92;
         try {
         	File fichero=new File(args[0]);
         	Scanner inputFile = new Scanner( fichero );
-        	String[] palabras = new String[2];
-        	
 			while (inputFile.hasNext()) {
+				int cont=0;
+				char barra=(int) 92;
+				String[] palabras = new String[2];
 				String linea = inputFile.nextLine();
 				palabras=linea.split("(?<!\\\\),");
 				while(cont<palabras.length) {
@@ -22,6 +21,7 @@ public class App
 					System.out.print("["+palabras[cont]+"]");
 					cont++;
 				}
+				System.out.println("");
 			}
 			inputFile.close();
 		} catch (Exception e) {
