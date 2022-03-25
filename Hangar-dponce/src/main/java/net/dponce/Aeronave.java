@@ -1,7 +1,6 @@
 package net.dponce;
 
 public abstract class Aeronave {
-	
 	private String identificador;
 	private double litrosDeCombustible;
 	
@@ -20,7 +19,5 @@ public abstract class Aeronave {
 
 	public String getIdentificador() {
 		return identificador;
-	}
-	
-	
+	}	
 }

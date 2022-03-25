@@ -34,6 +34,7 @@ public class Hangar {
 	public Aeronave getAeronave(int pos) {
 		if(pos > 5 || pos < 0) {
 			System.out.println("No existe esa posicion");
+			return null;
 		}
 		return hangar[pos];
 	}

@@ -4,7 +4,6 @@ public class AvionDePasajeros extends Aeronave{
 	private String compania;
 	private int numTurbinas;
 	
-
 	public AvionDePasajeros(String identificador,  int numTurbinas,String compania) {
 		super(identificador);
 		this.compania = compania;
@@ -17,7 +16,5 @@ public class AvionDePasajeros extends Aeronave{
 
 	public int getNumTurbinas() {
 		return numTurbinas;
-	}
-	
-	
+	}	
 }
