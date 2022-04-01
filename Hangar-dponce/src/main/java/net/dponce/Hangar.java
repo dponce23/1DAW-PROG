@@ -24,6 +24,7 @@ public class Hangar {
 		for (int i = 0; i < hangar.length; i++) {
 			if(i == pos) {
 				hangar[i]=null;
+				return;
 			}
 			
 		}
