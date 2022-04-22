@@ -6,10 +6,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.luisantolin.daw.prog</groupId>
-	<artifactId>ejemplo</artifactId>
+	<artifactId>CsvToBb-dponce</artifactId>
 	<version>1.0</version>
 
-	<name>ejemplo</name>
+	<name>CsvToBb-dponce</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
