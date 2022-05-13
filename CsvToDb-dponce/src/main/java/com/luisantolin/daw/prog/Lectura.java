@@ -6,21 +6,22 @@ import java.util.Scanner;
 
 public class Lectura {
 
-	public void leerFichero(File f) {
-		ArrayList<String> alumnos=new ArrayList<String>() ;
+	public ArrayList<String[]> leerFichero(File f) {
 		try {
+			ArrayList<String[]> alumnos= new ArrayList<String[]>();
 			Scanner inputFile=new Scanner(f);
 			while(inputFile.hasNext()) {
 				String linea = inputFile.nextLine();
-				alumnos.add(linea);
+				String[] alumno=linea.split(",");
+				alumnos.add(alumno);
 			}
-			Escritura escribir= new Escritura();
-			escribir.escribirDatos(alumnos);
 			inputFile.close();
+			return alumnos;
 			
 		}catch(Exception e) {
 			System.err.println("ERROR: no se puede abrir el fichero");
-			
+			return null;
 		}
+
 	}
 }

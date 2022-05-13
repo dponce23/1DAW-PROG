@@ -9,20 +9,15 @@ import java.util.ArrayList;
 
 public class Escritura {
 
-	public void escribirDatos(ArrayList<String> array) {
+	public void escribirDatos(ArrayList<Alumno> array) {
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://dponce.daw.practicas.net:3306/testdb?serverTimezone=UTC", "dponce", "Admin123.");
 			Statement stmt = con.createStatement();
 			
 			for(int i = 0; i<array.size();i++) {
-				String [] alumno;
-				alumno=array.get(i).split(",");
-				String modulo=alumno[0];
-				String numlista=alumno[1];
-				String id1=alumno[2];
-				stmt.executeUpdate("INSERT INTO alumnos (num_lista,modulo,mac,ip,id1) values ("+numlista+",'"+modulo+"',null,null,'"+id1+"')");
+				stmt.executeUpdate("INSERT INTO alumnos (num_lista,modulo,mac,ip,id1) values ("+array.get(i).getNumlista()+",'"+array.get(i).getModulo()+"',null,null,'"+array.get(i).getId1()+"')");
 			}
-			System.out.println("AUMNOS INSERTADOS.");
+			System.out.println("ALUMNOS INSERTADOS.");
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {

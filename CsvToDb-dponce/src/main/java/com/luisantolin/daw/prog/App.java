@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /*
  * CREACION DE LA BBDD, DEL USUARIO Y PERMISOS
@@ -18,7 +19,13 @@ import java.sql.Statement;
 public class App {
 	public static void main( String[] args ) {
 		File fichero=new File(args[0]);
-		Lectura leer= new Lectura();
-		leer.leerFichero(fichero);
+		Lectura l =new Lectura();
+		ArrayList<String[]> lista =l.leerFichero(fichero);
+		ArrayList<Alumno> alumnos=new ArrayList<Alumno>();
+		for(int i =0;i<lista.size();i++) {
+			String[] datos=lista.get(i);
+			Alumno alumno=new Alumno(datos[0],Integer.parseInt(datos[1]),datos[2]);
+			alumnos.add(alumno);
+		}
 	}
 }
