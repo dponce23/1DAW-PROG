@@ -4,7 +4,7 @@ public class Punto implements Debugueable{
 	private int x;
 	private int y;
 	
-	public void Punto(int x,int y) {
+	public Punto(int x,int y) {
 		this.x=x;
 		this.y=y;
 	}

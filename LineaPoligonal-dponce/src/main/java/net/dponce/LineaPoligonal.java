@@ -12,6 +12,8 @@ public class LineaPoligonal implements Debugueable{
 	public void addPunto(Punto p) {
 		puntos.add(p);
 	}
+	
+
 
 	@Override
 	public void debug() {
